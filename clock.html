@@ -1,0 +1,67 @@
+<html>
+
+  <head>
+    <title>CLOCK</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: black;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #page {
+        display: flex;
+        color: white;
+        justify-content: center;
+        border-bottom: 1px solid white;
+        padding-bottom: 15px;
+        column-gap: 10px;
+      }
+
+      #page * {
+        font-size: 5em;
+      }
+
+    </style>
+    <script>
+      const showTime = () => {
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+
+        const hourElement = document.getElementById('hours');
+        const minuteElement = document.getElementById('minutes');
+        const secondElement = document.getElementById('seconds');
+
+        hourElement.innerText = hours;
+        minuteElement.innerText = minutes;
+        secondElement.innerText = seconds;
+      };
+
+      const onLoad = () => {
+        setInterval(() => showTime(), 500);
+      };
+      window.onload = onLoad;
+    </script>
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="hours"></div>
+      <div class="seperator">:</div>
+      <div id="minutes"></div>
+      <div class="seperator">:</div>
+      <div id="seconds"></div>
+    </div>
+  </body>
+
+</html>
